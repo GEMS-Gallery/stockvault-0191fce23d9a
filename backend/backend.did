@@ -8,6 +8,7 @@ type Stock =
 service : {
   addOrUpdateStock: (text, text, float64, float64) -> ();
   getAllStocks: () -> (vec Stock) query;
+  getStock: (text) -> (opt Stock) query;
   getTotalPortfolioValue: () -> (float64) query;
   removeStock: (text) -> ();
 }

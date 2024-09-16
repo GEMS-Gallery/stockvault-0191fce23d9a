@@ -12,6 +12,7 @@ export const idlFactory = ({ IDL }) => {
         [],
       ),
     'getAllStocks' : IDL.Func([], [IDL.Vec(Stock)], ['query']),
+    'getStock' : IDL.Func([IDL.Text], [IDL.Opt(Stock)], ['query']),
     'getTotalPortfolioValue' : IDL.Func([], [IDL.Float64], ['query']),
     'removeStock' : IDL.Func([IDL.Text], [], []),
   });

@@ -11,6 +11,7 @@ export interface Stock {
 export interface _SERVICE {
   'addOrUpdateStock' : ActorMethod<[string, string, number, number], undefined>,
   'getAllStocks' : ActorMethod<[], Array<Stock>>,
+  'getStock' : ActorMethod<[string], [] | [Stock]>,
   'getTotalPortfolioValue' : ActorMethod<[], number>,
   'removeStock' : ActorMethod<[string], undefined>,
 }

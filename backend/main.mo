@@ -5,6 +5,7 @@ import Iter "mo:base/Iter";
 import Array "mo:base/Array";
 import Float "mo:base/Float";
 import Text "mo:base/Text";
+import Debug "mo:base/Debug";
 
 actor StockHolding {
   type Stock = {
@@ -49,5 +50,9 @@ actor StockHolding {
       total += stock.quantity * stock.price;
     };
     total
+  };
+
+  public query func getStock(symbol: Text) : async ?Stock {
+    stockHoldings.get(symbol)
   };
 }
