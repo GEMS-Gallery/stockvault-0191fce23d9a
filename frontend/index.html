@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Holding App</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div id="app">
+        <h1>Stock Holding App</h1>
+        <div id="add-stock">
+            <h2>Add/Update Stock</h2>
+            <input type="text" id="symbol" placeholder="Symbol">
+            <input type="text" id="name" placeholder="Name">
+            <input type="number" id="quantity" placeholder="Quantity">
+            <input type="number" id="price" placeholder="Price">
+            <button id="add-update-btn">Add/Update Stock</button>
+        </div>
+        <div id="stock-list">
+            <h2>Your Stocks</h2>
+            <ul id="stocks"></ul>
+        </div>
+        <div id="portfolio-value">
+            <h2>Total Portfolio Value: $<span id="total-value"></span></h2>
+        </div>
+    </div>
+    <script type="module" src="index.js"></script>
+</body>
+</html>
