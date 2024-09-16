@@ -2,12 +2,35 @@ import { backend } from 'declarations/backend';
 
 document.addEventListener('DOMContentLoaded', async () => {
     const addUpdateBtn = document.getElementById('add-update-btn');
+    const fetchStockInfoBtn = document.getElementById('fetch-stock-info');
     const symbolInput = document.getElementById('symbol');
     const nameInput = document.getElementById('name');
     const quantityInput = document.getElementById('quantity');
     const priceInput = document.getElementById('price');
     const stocksList = document.getElementById('stocks');
     const totalValueSpan = document.getElementById('total-value');
+
+    fetchStockInfoBtn.addEventListener('click', async () => {
+        const symbol = symbolInput.value;
+        if (symbol) {
+            try {
+                const response = await fetch(`https://query1.finance.yahoo.com/v7/finance/quote?symbols=${symbol}`);
+                const data = await response.json();
+                const stockInfo = data.quoteResponse.result[0];
+                if (stockInfo) {
+                    nameInput.value = stockInfo.longName || stockInfo.shortName;
+                    priceInput.value = stockInfo.regularMarketPrice.toFixed(2);
+                } else {
+                    alert('Stock information not found. Please check the symbol and try again.');
+                }
+            } catch (error) {
+                console.error('Error fetching stock info:', error);
+                alert('Unable to fetch stock information. Please try again later.');
+            }
+        } else {
+            alert('Please enter a stock symbol.');
+        }
+    });
 
     addUpdateBtn.addEventListener('click', async () => {
         const symbol = symbolInput.value;

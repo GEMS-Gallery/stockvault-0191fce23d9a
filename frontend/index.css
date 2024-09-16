@@ -52,3 +52,15 @@ li button:hover {
     margin-top: 20px;
     font-weight: bold;
 }
+
+#fetch-stock-info {
+    background-color: #008CBA;
+}
+
+#fetch-stock-info:hover {
+    background-color: #007B9A;
+}
+
+input[readonly] {
+    background-color: #f0f0f0;
+}
